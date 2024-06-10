@@ -67,8 +67,9 @@ python3 antenna_calculator_gui.py
 
 
 ### Argparse
+---
 
-The original [AntennaCalculator](https://github.com/Dollarhyde/AntennaCalculator) branch uses [argparse](https://docs.python.org/3/library/argparse.html) to take a series of arguments and output calculated values based on the equations in [^1]. This functionality still exists in this branch, retained in the original antenna_calculator.py. 
+The original [AntennaCalculator](https://github.com/Dollarhyde/AntennaCalculator) branch uses [argparse](https://docs.python.org/3/library/argparse.html) to take a series of arguments and output calculated values based on the equations in [1]. This functionality still exists in this branch, retained in the original antenna_calculator.py. 
 
 In the original antenna_calculator.py, the program was run directly from the terminal such that:
 
@@ -92,14 +93,17 @@ In this branch, antenna_calculator_gui.py has a wrapper to take the user input i
 
 
 ### Antenna Calculations
+---
 
-The rectangular patch, monopole, and dipole designs are from 'Antenna Theory: Analysis and Design' [^1]. The equations featured in this book are standard for these analytical topologies. 
+
+The rectangular patch, monopole, and dipole designs are from 'Antenna Theory: Analysis and Design' [1]. The equations featured in this book are standard for these analytical topologies. 
 
 It is important to note that no equation or calculation will 100% represent reality.  In application, when building these antennas, the math will get you 95% of the way. The last 5% is experimentation, and a bit of tuning. For the patch antennas this usually means adjusting the width or length (smaller = higher frequency, larger = lower frequency), or shortening $x_0$ slightly to increase the gain. For monopoles and dipoles, it is very common to shorten the conductor to match the imaginary part of the impedance of the antenna to a cable or port.
 
 This calculator has been used with the AntennaCAT project to generate 150,000+ designs (and counting) in automated validation testing, and machine learning data collection.
 
 ### AntennaCAT
+---
 
 The Antenna Calculation and Autotuning Tool ([AntennaCAT](https://github.com/LC-Linkous/AntennaCalculationAutotuningTool)) is an in-progress tool to integrate calculation, design, simulations, and automation into an easy-to-use tool for research purposes. The GUI-integrated calculator is stand-alone; however the rest of the tool relies on licensed electromagnetic (EM) simulation tools such as ANSYS HFSS, COMSOL, or FEKO in order to simulate and manipulate antenna designs. 
 
@@ -138,7 +142,7 @@ The Antenna Calculation and Autotuning Tool ([AntennaCAT](https://github.com/LC-
 
 ## References
 Equations for the topologies featured in this calculator have come from:
-[^1]: C. A. Balanis, Antenna Theory: Analysis and Design. Hoboken, New Jersey Wiley, 2016.
+[1]: C. A. Balanis, Antenna Theory: Analysis and Design. Hoboken, New Jersey Wiley, 2016.
 
 
 
