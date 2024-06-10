@@ -1,5 +1,7 @@
+#! /usr/bin/python3
+
 import argparse
-from rectangular_patch import RectangularPatch
+from src.rectangular_patch import RectangularPatch
 from dipole import Dipole
 from monopole import Monopole
 

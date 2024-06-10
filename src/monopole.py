@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 from pint import UnitRegistry
 ureg = UnitRegistry()
 
