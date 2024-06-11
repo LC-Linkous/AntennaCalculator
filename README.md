@@ -141,7 +141,7 @@ The Antenna Calculation and Autotuning Tool ([AntennaCAT](https://github.com/LC-
 
 
 ## References
-Equations for the topologies featured in this calculator have come from:
+
 [1]: C. A. Balanis, Antenna Theory: Analysis and Design. Hoboken, New Jersey Wiley, 2016.
 
 
@@ -162,6 +162,6 @@ Equations for the topologies featured in this calculator have come from:
 [![DEFCON Presentation](https://i.ytimg.com/vi/7mciNPmT1KE/hqdefault.jpg)](https://www.youtube.com/watch?v=7mciNPmT1KE "DEF CON 30 RF Village - Erwin Karincic - Have a SDR? - Design and make your own antennas")
 
 #### PDF Presentation
-[PDF link](https://github.com/Dollarhyde/AntennaCalculator/blob/main/Have%20a%20Software%20Defined%20Radio%20-%20Design%20and%20make%20your%20own%20antennas.pdf)
+["DEF CON 30 RF Village - Erwin Karincic - Have a SDR? - Design and make your own antennas" PDF link](https://github.com/Dollarhyde/AntennaCalculator/blob/main/Have%20a%20Software%20Defined%20Radio%20-%20Design%20and%20make%20your%20own%20antennas.pdf)
 
 
