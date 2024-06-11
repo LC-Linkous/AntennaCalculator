@@ -1,5 +1,12 @@
 # AntennaCalculator GUI
 
+<p align="center">
+        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/patch_preview.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
+</p>
+   <p align="center">Calculated and Previewed Microstrip Rectangular Patch Antenna</p>
+
+
+
 A forked GUI branch of [Dollarhyde's](https://github.com/Dollarhyde) [CLI-based AntennaCalculator](https://github.com/Dollarhyde/AntennaCalculator). This branch is a simplified version of how the AntennaCalculator is integrated into [LC-Linkous'](https://github.com/LC-Linkous) [AntennaCAT project](https://github.com/LC-Linkous/AntennaCalculationAutotuningTool). It features some matplotlib-based graphics to help visualize the antenna topologies based on user inputs. 
 
 The calculator features the following topologies:
@@ -13,7 +20,6 @@ The calculator features the following topologies:
 * [Requirements](#requirements)
 * [Implementation](#implementation)
     * [GUI](#gui)
-    * [Matplotlib](#matplotlib)
     * [Argparse](#argparse)
     * [Antenna Calculations](#antenna-calculations)
     * [AntennaCAT](#antennacat)
@@ -35,35 +41,63 @@ The calculator features the following topologies:
 
 ## Requirements
 
-This project requires (list major need-to-be-installed libs). 
+This project requires numpy, matplotlib, wxpython, pcb-tools-extension, ezdxf. 
 
 Use 'pip install -r requirements.txt' to install the following dependencies:
 
 ```python
-ADD LIBRARIES HERE
+ezdxf~=0.18
+numpy~=1.23.2
+pcb-tools~=0.1.6
+pcb-tools-extension~=0.9.3
+Pillow~=9.5.0
+Pint~=0.19.2
+cairocffi~=0.9.0
+cffi~=1.16.0
+contourpy~=1.2.1
+cycler~=0.12.1
+dxfgrabber~=1.0.1
+fonttools~=4.53.0
+importlib_resources~=6.4.0
+kiwisolver~=1.4.5
+matplotlib~=3.9.0
+packaging~=24.1
+pycparser~=2.22
+pyparsing~=3.1.2
+python-dateutil~=2.9.0.post0
+six~=1.16.0
+typing_extensions~=4.12.2
+wxPython~=4.2.1
+zipp~=3.19.2
 
 ```
 
 ## Implementation
 
+To use the GUI version of the calculator, install the dependencies listed in requirements.txt and run the following in the terminal of your choice:
 
 ```python
 python3 antenna_calculator_gui.py 
 
 ```
 
+The original calculator can still be run by passing in arguments to antenna_calculator.py.
 
+```python
+python3 antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3
+
+```
 
 
 
 ### GUI
 
-*TODO: add image
+<p align="center">
+        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/patch_preview.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
+</p>
+   <p align="center">Calculated and Previewed Microstrip Rectangular Patch Antenna</p>
 
-### Matplotlib
-
-* TODO: brief explanation of matplotlib use here
-
+The GUI is a stripped-down version of the Antenna Generator used in AntennaCAT, featuring just the calculator and export options. It is made in wxPython. 
 
 
 ### Argparse
@@ -111,7 +145,9 @@ The Antenna Calculation and Autotuning Tool ([AntennaCAT](https://github.com/LC-
 
 ### Rectangular Patch
 
-*TODO: add GUI image
+<p align="center">
+        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/rectangular_patch_plot.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
+</p>
 
 
 #### PNG output using `--pngoutput`
@@ -128,13 +164,17 @@ The Antenna Calculation and Autotuning Tool ([AntennaCAT](https://github.com/LC-
 
 
 ### Quarter Wave Monopole
-*TODO: add GUI image
+<p align="center">
+        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/monopole_plot.png" alt="screenshot of the GUI featuring the output of calculating the quarter wave monopole antenna" height="250">        
+</p>
 
 
 
 
 ### Half Wave Dipole
-*TODO: add GUI image
+<p align="center">
+        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/dipole_plot.png" alt="screenshot of the GUI featuring the output of calculating the half wave dipole antenna" height="250">        
+</p>
 
 
 
