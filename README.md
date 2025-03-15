@@ -1,13 +1,16 @@
 # AntennaCalculator GUI
 
+GUI wrapped for an open source antenna designer. 
+
+
 <p align="center">
-        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/patch_preview.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
+        <img src="/media/patch_preview.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
 </p>
    <p align="center">Calculated and Previewed Microstrip Rectangular Patch Antenna</p>
 
 
 
-A forked GUI branch of [Dollarhyde's](https://github.com/Dollarhyde) [CLI-based AntennaCalculator](https://github.com/Dollarhyde/AntennaCalculator). This branch is a simplified version of how the AntennaCalculator is integrated into [LC-Linkous'](https://github.com/LC-Linkous) [AntennaCAT project](https://github.com/LC-Linkous/AntennaCalculationAutotuningTool). It features some matplotlib-based graphics to help visualize the antenna topologies based on user inputs. 
+A forked GUI branch of [Dollarhyde's](https://github.com/Dollarhyde) [CLI-based AntennaCalculator](https://github.com/Dollarhyde/AntennaCalculator). This branch is a simplified version of how the AntennaCalculator is integrated into [LC-Linkous'](https://github.com/LC-Linkous) [AntennaCAT project](https://github.com/LC-Linkous/AntennaCalculationAutotuningTool). It features some matplotlib-based, simplified graphics to help visualize the antenna topologies based on user inputs.
 
 The calculator features the following topologies:
 * Rectangular patch antenna, probe and microstrip versions
@@ -24,7 +27,7 @@ The calculator features the following topologies:
     * [Antenna Calculations](#antenna-calculations)
     * [AntennaCAT](#antennacat)
 * [Examples](#example-implementations)
-    * [Rectanglar Patch](#rectangular-patch)
+    * [Rectangular Patch](#rectangular-patch)
       * [PNG output using `--pngoutput`](#png-output-using---pngoutput)
       * [DXF output using `--dxfoutput`](#dxf-output-using---dxfoutput)
       * [Gerber output using `--gerberoutput`](#gerber-output-using---gerberoutput)
@@ -41,34 +44,47 @@ The calculator features the following topologies:
 
 ## Requirements
 
-This project requires numpy, matplotlib, wxpython, pcb-tools-extension, ezdxf. 
+This project requires numpy, pcb-tools-extension, ezdxf, pint, pillow. 
+
+
+The AntennaCalculator has been tested on Python 3.9, 3.11, and 3.12. 
+
 
 Use 'pip install -r requirements.txt' to install the following dependencies:
 
 ```python
-ezdxf~=0.18
-numpy~=1.23.2
-pcb-tools~=0.1.6
-pcb-tools-extension~=0.9.3
-Pillow~=9.5.0
-Pint~=0.19.2
-cairocffi~=0.9.0
-cffi~=1.16.0
-contourpy~=1.2.1
-cycler~=0.12.1
-dxfgrabber~=1.0.1
-fonttools~=4.53.0
-importlib_resources~=6.4.0
-kiwisolver~=1.4.5
-matplotlib~=3.9.0
-packaging~=24.1
-pycparser~=2.22
-pyparsing~=3.1.2
-python-dateutil~=2.9.0.post0
-six~=1.16.0
-typing_extensions~=4.12.2
-wxPython~=4.2.1
-zipp~=3.19.2
+cairocffi==0.9.0
+cffi==1.17.1
+contourpy==1.3.1
+cycler==0.12.1
+dxfgrabber==1.0.1
+ezdxf==1.4.0
+flexcache==0.3
+flexparser==0.4
+fonttools==4.56.0
+kiwisolver==1.4.8
+matplotlib==3.10.1
+numpy==2.2.3
+packaging==24.2
+pcb-tools==0.1.6
+pcb-tools-extension==0.9.3
+pillow==11.1.0
+Pint==0.24.4
+platformdirs==4.3.6
+pycparser==2.22
+pyparsing==3.2.1
+python-dateutil==2.9.0.post0
+six==1.17.0
+typing_extensions==4.12.2
+wxPython==4.2.2
+
+```
+
+
+
+Or install manually with:
+```python
+pip install numpy, pcb-tools-extension, ezdxf, pint, pillow, wxpython, matplotlib
 
 ```
 
@@ -93,7 +109,7 @@ python3 antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3
 ### GUI
 
 <p align="center">
-        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/patch_preview.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
+        <img src="media/patch_preview.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
 </p>
    <p align="center">Calculated and Previewed Microstrip Rectangular Patch Antenna</p>
 
@@ -105,22 +121,47 @@ The GUI is a stripped-down version of the Antenna Generator used in AntennaCAT, 
 
 The original [AntennaCalculator](https://github.com/Dollarhyde/AntennaCalculator) branch uses [argparse](https://docs.python.org/3/library/argparse.html) to take a series of arguments and output calculated values based on the equations in [1]. This functionality still exists in this branch, retained in the original antenna_calculator.py. 
 
-In the original antenna_calculator.py, the program was run directly from the terminal such that:
+In the original antenna_calculator.py, the program was run directly from the terminal.
 
-Sample Input:
+1) Standard variable print out
 ```
-python3 antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3
+python antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3
 
-```
-Sample Output:
-```
-python3 antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3
+
 [*] W = 38.04 millimeter
 [*] L = 29.44 millimeter
-[*] Ws = 3.06 millimeter
-[*] y0 = 19.02 millimeter
 [*] x0 = 11.32 millimeter
+[*] y0 = 19.02 millimeter
+[*] Ws = 3.06 millimeter
+
 ```
+
+2) Full variable print out:
+```
+python antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3 --verbose
+
+
+[*] W = 38.04 millimeter
+[*] Ereff = 4.09
+[*] dL = 738.82 micrometer
+[*] Leff = 30.92 millimeter
+[*] Zin_0 = 396.6828700137873
+[*] Zin_x0 = 50
+[*] x0 = 0.01131973828663886
+[*] x0 = 11.32 millimeter
+[*] y0 = 0.01901814435781827
+[*] y0 = 19.02 millimeter
+[*] A = 1.529861949318471
+[*] A Ws/d = 1.9118593643297774
+[*] A is valid
+[*] Ws = 3.06 millimeter
+```
+
+3) Return variables, no printout:
+```
+python antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3 --variable_return
+```
+
 
 In this branch, antenna_calculator_gui.py has a wrapper to take the user input in through the GUI, format it for the argparse argument, and then process the return. This was done to 1) retain as much as the original calculator as possible for future expansion, 2) demonstrate the modular AntennaCAT integration, minus a few error checking features for CEM/CAD integration.
 
@@ -146,7 +187,7 @@ The Antenna Calculation and Autotuning Tool ([AntennaCAT](https://github.com/LC-
 ### Rectangular Patch
 
 <p align="center">
-        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/rectangular_patch_plot.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
+        <img src="/media/rectangular_patch_plot.png" alt="screenshot of the GUI featuring the output of calculating the rectangular patch antenna" height="250">        
 </p>
 
 
@@ -165,7 +206,7 @@ The Antenna Calculation and Autotuning Tool ([AntennaCAT](https://github.com/LC-
 
 ### Quarter Wave Monopole
 <p align="center">
-        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/monopole_plot.png" alt="screenshot of the GUI featuring the output of calculating the quarter wave monopole antenna" height="250">        
+        <img src="media/monopole_plot.png" alt="screenshot of the GUI featuring the output of calculating the quarter wave monopole antenna" height="250">        
 </p>
 
 
@@ -173,7 +214,7 @@ The Antenna Calculation and Autotuning Tool ([AntennaCAT](https://github.com/LC-
 
 ### Half Wave Dipole
 <p align="center">
-        <img src="https://github.com/LC-Linkous/AntennaCalculator/blob/GUI/media/dipole_plot.png" alt="screenshot of the GUI featuring the output of calculating the half wave dipole antenna" height="250">        
+        <img src="media/dipole_plot.png" alt="screenshot of the GUI featuring the output of calculating the half wave dipole antenna" height="250">        
 </p>
 
 

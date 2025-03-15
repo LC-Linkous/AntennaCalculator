@@ -1,5 +1,13 @@
 #! /usr/bin/python3
 
+
+##--------------------------------------------------------------------\
+#   AntennaCalculator  antenna_calculator.py
+#   
+#   This is the main entry point of the CLI calculator. Refer to the 
+#   README for information on format and arguments. 
+##--------------------------------------------------------------------\
+
 import argparse
 from rectangular_patch import RectangularPatch
 from dipole import Dipole
@@ -135,5 +143,12 @@ if __name__ ==  "__main__":
     args = shell.getArgs()
     shell.main(args)
 
-    # examples:
+    # CLI examples:
+    # Print variables:
+    # python antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3
+
+    # Print all the variables:
+    # python antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3 --verbose
+    
+    # Return Variables instead of printing:
     # python antenna_calculator.py rectangular_patch -f 2.4e9 -er 4.4 -h 1.6e-3 --variable_return
