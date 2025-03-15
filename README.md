@@ -18,6 +18,14 @@ The calculator features the following topologies:
 * Half Wave Dipole
 
 
+Supported exports:
+* Rectangular patch: top layer PNG, top layer DXF, gerber files
+
+
+The analytical models for the three topologies are from [1]. The calculated designs have been verified in simulation with Ansys HFSS and experimentation. 
+
+
+
 
 ## Table of Contents
 * [Requirements](#requirements)
@@ -44,7 +52,7 @@ The calculator features the following topologies:
 
 ## Requirements
 
-This project requires numpy, pcb-tools-extension, ezdxf, pint, pillow. 
+This project requires numpy, pcb-tools-extension, ezdxf, pint, pillow, wxpython, and matplotlib
 
 
 The AntennaCalculator has been tested on Python 3.9, 3.11, and 3.12. 
